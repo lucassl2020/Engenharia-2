@@ -17,8 +17,8 @@ class SalvarCliente(Observer):
 
             conexao, cursor = abrir_banco_de_dados()
 
-
-            apply_sql_command(cursor, "INSERT INTO Clientes (cpf, nome, endereco, data_de_nascimento, telefone) VALUES ('%s', '%s', '%s', '%s', '%s')" % (cpf, nome, endereco, data_de_nascimento, telefone))
+            if(cpf and nome and endereco and data_de_nascimento and telefone):
+                apply_sql_command(cursor, "INSERT INTO Clientes (cpf, nome, endereco, data_de_nascimento, telefone) VALUES ('%s', '%s', '%s', '%s', '%s')" % (cpf, nome, endereco, data_de_nascimento, telefone))
             
 
             fechar_banco_de_dados(conexao)

@@ -20,8 +20,8 @@ class SalvarFornecedor(Observer):
 
             conexao, cursor = abrir_banco_de_dados()
 
-
-            apply_sql_command(cursor, "INSERT INTO Fornecedores (cnpj, nome_fantasia, razao_social, telefone, endereco, inscricao_estadual, email) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (cnpj, nome_fantasia, razao_social, telefone, endereco, inscricao_estadual, email))
+            if(cnpj and nome_fantasia and razao_social and telefone and endereco and inscricao_estadual and email):
+                apply_sql_command(cursor, "INSERT INTO Fornecedores (cnpj, nome_fantasia, razao_social, telefone, endereco, inscricao_estadual, email) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (cnpj, nome_fantasia, razao_social, telefone, endereco, inscricao_estadual, email))
             
 
             fechar_banco_de_dados(conexao)

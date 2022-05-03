@@ -2,13 +2,13 @@ from model.Observer import Observer
 from model.ApplySqlCommand import abrir_banco_de_dados, fechar_banco_de_dados, apply_sql_command
 
 
-class SalvarPeca(Observer):
+class GerenciarPeca(Observer):
     def __init__(self, stack_telas):
         self._stack_telas = stack_telas
 
 
     def update(self, event):
-        if event["codigo"] == 1:
+        if event["codigo"] == 4: #BUSCAR
             codigo = self._stack_telas.screens[2].codigo_line.text()
             nome = self._stack_telas.screens[2].nome_line.text()
             valor_de_custo = self._stack_telas.screens[2].valor_custo_line.text()
@@ -22,3 +22,8 @@ class SalvarPeca(Observer):
             
 
             fechar_banco_de_dados(conexao)
+
+        if event["codigo"] == 5: #BUSCAR
+
+
+        if event["codigo"] == 6: #BUSCAR
