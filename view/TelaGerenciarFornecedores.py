@@ -22,7 +22,7 @@ class TelaGerenciarFornecedores(QWidget):
 
 
     def _settings(self):
-        self.setFixedSize(800, 840)
+        self.setFixedSize(800, 900)
         self.setWindowTitle("Gerenciar fornecedores")
  
 
@@ -40,7 +40,6 @@ class TelaGerenciarFornecedores(QWidget):
         self.resultado_label = label(self, "Resultado", 240, 200, 561, 60)
         self.resultado_label.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.resultado_label.setAlignment(QtCore.Qt.AlignCenter)
-
 
         self.nome_fantasia_line = lineEdit(self, 390, 300, 261, 41)
         self.nome_fantasia_label = label(self, "Nome fantasia", 240, 280, 561, 20)
@@ -66,12 +65,16 @@ class TelaGerenciarFornecedores(QWidget):
         self.email_label = label(self, "Email", 240, 680, 561, 20)
         self.email_label.setAlignment(QtCore.Qt.AlignCenter)
 
+        self.CNPJ_resultado_line = lineEdit(self, 390, 780, 261, 41)
+        self.CNPJ_resultado_line.setEnabled(False)
+        self.CNPJ_resultado_label = label(self, "CNPJ", 240, 760, 561, 20)
+        self.CNPJ_resultado_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.salvar_botao = button(self, "Salvar", 390, 760, 130, 41)
-        self.excluir_botao = button(self, "Excluir", 521, 760, 130, 41)
+        self.salvar_botao = button(self, "Salvar", 390, 840, 130, 41)
+        self.excluir_botao = button(self, "Excluir", 521, 840, 130, 41)
 
         self.listView = QListView(self)
-        self.listView.setGeometry(QtCore.QRect(0, 0, 241, 841))
+        self.listView.setGeometry(QtCore.QRect(0, 0, 241, 901))
 
 
     def _set_style(self):
@@ -93,6 +96,7 @@ class TelaGerenciarFornecedores(QWidget):
         self.endereco_label.setStyleSheet("font: 12pt;")
         self.telefone_label.setStyleSheet("font: 12pt;")
         self.email_label.setStyleSheet("font: 12pt;")
+        self.CNPJ_resultado_label.setStyleSheet("font: 12pt;")
 
         self.nome_fantasia_line.setStyleSheet("font: 11pt; border: 1px solid; border-radius: 4px; border-color: rgb(84, 84, 84);")
         self.razao_social_line.setStyleSheet("font: 11pt; border: 1px solid; border-radius: 4px; border-color: rgb(84, 84, 84);")
@@ -100,6 +104,7 @@ class TelaGerenciarFornecedores(QWidget):
         self.endereco_line.setStyleSheet("font: 11pt; border: 1px solid; border-radius: 4px; border-color: rgb(84, 84, 84);")
         self.telefone_line.setStyleSheet("font: 11pt; border: 1px solid; border-radius: 4px; border-color: rgb(84, 84, 84);")
         self.email_line.setStyleSheet("font: 11pt; border: 1px solid; border-radius: 4px; border-color: rgb(84, 84, 84);")
+        self.CNPJ_resultado_line.setStyleSheet("font: 11pt; border: 1px solid; border-radius: 4px; border-color: rgb(84, 84, 84);")
 
         style_button(button=self.salvar_botao, cor="azul", tam_fonte="12", border_radius=(5, 0, 5, 0), border_color="(123, 166, 205)")
         style_button(button=self.excluir_botao, cor="vermelho", tam_fonte="12", border_radius=(0, 5, 0, 5), border_color="(205, 123, 123)")
@@ -113,7 +118,14 @@ class TelaGerenciarFornecedores(QWidget):
 
     def clear(self, *widget_names):
         self.CNPJ_line.clear()
-    
+        self.nome_fantasia_line.clear()
+        self.razao_social_line.clear()
+        self.inscricao_estadual_line.clear()
+        self.endereco_line.clear()
+        self.telefone_line.clear()
+        self.email_line.clear()
+        self.CNPJ_resultado_line.clear()
+
 
     def botaoBuscar(self):
         event = {"codigo": 10, "descricao": "Botão BUSCAR da tela GERENCIAR PEÇAS"}

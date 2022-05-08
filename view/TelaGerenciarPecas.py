@@ -47,6 +47,7 @@ class TelaGerenciarPecas(QWidget):
         self.nome_label.setAlignment(QtCore.Qt.AlignCenter)
         
         self.codigo_resultado_line = lineEdit(self, 390, 380, 261, 41)
+        self.codigo_resultado_line.setEnabled(False)
         self.codigo_resultado_label = label(self, "Codigo", 240, 360, 561, 20)
         self.codigo_resultado_label.setAlignment(QtCore.Qt.AlignCenter)
 
@@ -106,6 +107,11 @@ class TelaGerenciarPecas(QWidget):
 
     def clear(self, *widget_names):
         self.codigo_line.clear()
+        self.nome_line.clear()
+        self.codigo_resultado_line.clear()
+        self.valor_custo_line.clear()
+        self.valor_venda_line.clear()
+        self.codigo_fornecedor_line.clear()
     
 
     def botaoBuscar(self):

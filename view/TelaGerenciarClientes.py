@@ -47,6 +47,7 @@ class TelaGerenciarClientes(QWidget):
         self.nome_label.setAlignment(QtCore.Qt.AlignCenter)
         
         self.cpf_resultado_line = lineEdit(self, 390, 380, 261, 41)
+        self.cpf_resultado_line.setEnabled(False)
         self.cpf_resultado_label = label(self, "Cpf", 240, 360, 561, 20)
         self.cpf_resultado_label.setAlignment(QtCore.Qt.AlignCenter)
 
@@ -105,7 +106,12 @@ class TelaGerenciarClientes(QWidget):
         
 
     def clear(self, *widget_names):
-        self.codigo_line.clear()
+        self.cpf_line.clear()
+        self.nome_line.clear()
+        self.cpf_resultado_line.clear()
+        self.endereco_line.clear()
+        self.data_nascimento_line.clear()
+        self.telefone_line.clear()
     
 
     def botaoBuscar(self):
