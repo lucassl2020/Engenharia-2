@@ -22,65 +22,61 @@ class TelaGerenciarFornecedores(QWidget):
 
 
     def _settings(self):
-        self.setFixedSize(800, 900)
+        self.setFixedSize(600, 960)
         self.setWindowTitle("Gerenciar fornecedores")
  
 
     def _create_widgets(self):
-        self.gerenciar_label = label(self, "Gerenciar fornecedores", 240, 0, 561, 60)
+        self.gerenciar_label = label(self, "Gerenciar fornecedores", 0, 0, 600, 60)
         self.gerenciar_label.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.gerenciar_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.CNPJ_line = lineEdit(self, 390, 100, 261, 41)
-        self.CNPJ_label = label(self, "CNPJ do fornecedor", 240, 80, 561, 20)
+        self.CNPJ_line = lineEdit(self, 170, 100, 261, 41)
+        self.CNPJ_label = label(self, "CNPJ do fornecedor", 0, 80, 600, 20)
         self.CNPJ_label.setAlignment(QtCore.Qt.AlignCenter)
         
-        self.buscar_botao = button(self, "Buscar", 390, 150, 261, 41)
+        self.buscar_botao = button(self, "Buscar", 170, 150, 261, 41)
 
-        self.resultado_label = label(self, "Resultado", 240, 200, 561, 60)
+        self.resultado_label = label(self, "Resultado", 0, 200, 600, 60)
         self.resultado_label.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.resultado_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.nome_fantasia_line = lineEdit(self, 390, 300, 261, 41)
-        self.nome_fantasia_label = label(self, "Nome fantasia", 240, 280, 561, 20)
+        self.nome_fantasia_line = lineEdit(self, 170, 300, 261, 41)
+        self.nome_fantasia_label = label(self, "Nome fantasia", 0, 280, 600, 20)
         self.nome_fantasia_label.setAlignment(QtCore.Qt.AlignCenter)
         
-        self.razao_social_line = lineEdit(self, 390, 380, 261, 41)
-        self.razao_social_label = label(self, "Razão social", 240, 360, 561, 20)
+        self.razao_social_line = lineEdit(self, 170, 380, 261, 41)
+        self.razao_social_label = label(self, "Razão social", 0, 360, 600, 20)
         self.razao_social_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.inscricao_estadual_line = lineEdit(self, 390, 460, 261, 41)
-        self.inscricao_estadual_label = label(self, "Inscrição estudal", 240, 440, 561, 20)
+        self.inscricao_estadual_line = lineEdit(self, 170, 460, 261, 41)
+        self.inscricao_estadual_label = label(self, "Inscrição estudal", 0, 440, 600, 20)
         self.inscricao_estadual_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.endereco_line = lineEdit(self, 390, 540, 261, 41)
-        self.endereco_label = label(self, "Endereço", 240, 520, 561, 20)
+        self.endereco_line = lineEdit(self, 170, 540, 261, 41)
+        self.endereco_label = label(self, "Endereço", 0, 520, 600, 20)
         self.endereco_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.telefone_line = lineEdit(self, 390, 620, 261, 41)
-        self.telefone_label = label(self, "Telefone", 240, 600, 561, 20)
+        self.telefone_line = lineEdit(self, 170, 620, 261, 41)
+        self.telefone_label = label(self, "Telefone", 0, 600, 600, 20)
         self.telefone_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.email_line = lineEdit(self, 390, 700, 261, 41)
-        self.email_label = label(self, "Email", 240, 680, 561, 20)
+        self.email_line = lineEdit(self, 170, 700, 261, 41)
+        self.email_label = label(self, "Email", 0, 680, 600, 20)
         self.email_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.CNPJ_resultado_line = lineEdit(self, 390, 780, 261, 41)
+        self.CNPJ_resultado_line = lineEdit(self, 170, 780, 261, 41)
         self.CNPJ_resultado_line.setEnabled(False)
-        self.CNPJ_resultado_label = label(self, "CNPJ", 240, 760, 561, 20)
+        self.CNPJ_resultado_label = label(self, "CNPJ", 0, 760, 600, 20)
         self.CNPJ_resultado_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.salvar_botao = button(self, "Salvar", 390, 840, 130, 41)
-        self.excluir_botao = button(self, "Excluir", 521, 840, 130, 41)
-
-        self.listView = QListView(self)
-        self.listView.setGeometry(QtCore.QRect(0, 0, 241, 901))
+        self.salvar_botao = button(self, "Salvar", 170, 840, 130, 41)
+        self.excluir_botao = button(self, "Excluir", 300, 840, 130, 41)
+        self.voltar_botao = button(self, "Voltar", 170, 900, 261, 41)
 
 
     def _set_style(self):
         self.setStyleSheet("background-color: rgb(235, 235, 235);")
-
-        self.listView.setStyleSheet("background-color: rgb(32, 29, 29);")
         
         self.gerenciar_label.setStyleSheet("font: 16pt;")
         self.CNPJ_label.setStyleSheet("font: 12pt;")
@@ -108,12 +104,14 @@ class TelaGerenciarFornecedores(QWidget):
 
         style_button(button=self.salvar_botao, cor="azul", tam_fonte="12", border_radius=(5, 0, 5, 0), border_color="(123, 166, 205)")
         style_button(button=self.excluir_botao, cor="vermelho", tam_fonte="12", border_radius=(0, 5, 0, 5), border_color="(205, 123, 123)")
+        style_button(button=self.voltar_botao, cor="cinza", tam_fonte="12", border_radius=(10, 10, 10, 10), rgb_da_letra="(36, 36, 36)")
 
 
     def _setConnects(self):
         self.buscar_botao.clicked.connect(self.botaoBuscar)
         self.salvar_botao.clicked.connect(self.botaoSalvar)
         self.excluir_botao.clicked.connect(self.botaoExcluir)
+        self.voltar_botao.clicked.connect(self.botaoVoltar)
         
 
     def clear(self, *widget_names):
@@ -128,17 +126,21 @@ class TelaGerenciarFornecedores(QWidget):
 
 
     def botaoBuscar(self):
-        event = {"codigo": 10, "descricao": "Botão BUSCAR da tela GERENCIAR PEÇAS"}
+        event = {"codigo": 10, "descricao": "Botão BUSCAR da tela GERENCIAR FORNECEDORES"}
         self.subject.notify(event)
 
 
     def botaoSalvar(self):
-        event = {"codigo": 11, "descricao": "Botão SALVAR da tela GERENCIAR PEÇAS"}
+        event = {"codigo": 11, "descricao": "Botão SALVAR da tela GERENCIAR FORNECEDORES"}
         self.subject.notify(event)
 
 
     def botaoExcluir(self):
-        event = {"codigo": 12, "descricao": "Botão EXCLUIR da tela GERENCIAR PEÇAS"}
+        event = {"codigo": 12, "descricao": "Botão EXCLUIR da tela GERENCIAR FORNECEDORES"}
+        self.subject.notify(event)
+
+    def botaoVoltar(self):
+        event = {"codigo": 30, "descricao": "Botão VOLTAR da tela CADASTRAR FORNECEDORES"}
         self.subject.notify(event)
 
 

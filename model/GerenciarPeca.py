@@ -9,8 +9,8 @@ class GerenciarPeca(Observer):
 
     def update(self, event):
         if event["codigo"] == 4: # BUSCAR
-            codigo = self._stack_telas.screens[3].codigo_line.text()
-            self._stack_telas.screens[3].clear()
+            codigo = self._stack_telas.screens[4].codigo_line.text()
+            self._stack_telas.screens[4].clear()
 
             if(codigo):
                 conexao, cursor = abrir_banco_de_dados()
@@ -21,19 +21,19 @@ class GerenciarPeca(Observer):
                 
                 if lista_pecas:
                     peca = lista_pecas[0]
-                    self._stack_telas.screens[3].nome_line.setText(str(peca[1]))
-                    self._stack_telas.screens[3].codigo_resultado_line.setText(str(peca[0]))
-                    self._stack_telas.screens[3].valor_custo_line.setText(str(peca[2]))
-                    self._stack_telas.screens[3].valor_venda_line.setText(str(peca[3]))
-                    self._stack_telas.screens[3].codigo_fornecedor_line.setText(str(peca[4]))
+                    self._stack_telas.screens[4].nome_line.setText(str(peca[1]))
+                    self._stack_telas.screens[4].codigo_resultado_line.setText(str(peca[0]))
+                    self._stack_telas.screens[4].valor_custo_line.setText(str(peca[2]))
+                    self._stack_telas.screens[4].valor_venda_line.setText(str(peca[3]))
+                    self._stack_telas.screens[4].codigo_fornecedor_line.setText(str(peca[4]))
                 
 
         if event["codigo"] == 5: # SALVAR
-            codigo =  self._stack_telas.screens[3].codigo_resultado_line.text()
-            nome = self._stack_telas.screens[3].nome_line.text()
-            valor_custo = self._stack_telas.screens[3].valor_custo_line.text()
-            valor_venda = self._stack_telas.screens[3].valor_venda_line.text()
-            codigo_fornecedor = self._stack_telas.screens[3].codigo_fornecedor_line.text()
+            codigo =  self._stack_telas.screens[4].codigo_resultado_line.text()
+            nome = self._stack_telas.screens[4].nome_line.text()
+            valor_custo = self._stack_telas.screens[4].valor_custo_line.text()
+            valor_venda = self._stack_telas.screens[4].valor_venda_line.text()
+            codigo_fornecedor = self._stack_telas.screens[4].codigo_fornecedor_line.text()
             
 
             if(codigo and nome and valor_custo and valor_venda and codigo_fornecedor):
@@ -45,7 +45,7 @@ class GerenciarPeca(Observer):
             
 
         if event["codigo"] == 6: # EXCLUIR
-            codigo = self._stack_telas.screens[3].codigo_resultado_line.text()
+            codigo = self._stack_telas.screens[4].codigo_resultado_line.text()
 
             if(codigo):
                 conexao, cursor = abrir_banco_de_dados()
@@ -54,4 +54,4 @@ class GerenciarPeca(Observer):
 
                 fechar_banco_de_dados(conexao)
 
-                self._stack_telas.screens[3].clear()
+                self._stack_telas.screens[4].clear()

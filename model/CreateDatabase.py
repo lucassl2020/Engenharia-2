@@ -17,7 +17,6 @@ def create_database():
                 codigo INTEGER PRIMARY KEY AUTOINCREMENT, 
                 quantidade INTEGER NOT NULL,
                 valor_total REAL NOT NULL,
-                forma_pagamento TEXT NOT NULL,
                 data TEXT NOT NULL,
                 cpf_cliente INTEGER NOT NULL, 
                 codigo_peca INTEGER NOT NULL,

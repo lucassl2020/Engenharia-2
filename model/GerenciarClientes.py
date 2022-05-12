@@ -9,8 +9,8 @@ class GerenciarClientes(Observer):
 
     def update(self, event):
         if event["codigo"] == 7: # BUSCAR
-            cpf = self._stack_telas.screens[4].cpf_line.text()
-            self._stack_telas.screens[4].clear()
+            cpf = self._stack_telas.screens[5].cpf_line.text()
+            self._stack_telas.screens[5].clear()
 
             if(cpf):
                 conexao, cursor = abrir_banco_de_dados()
@@ -21,19 +21,19 @@ class GerenciarClientes(Observer):
                 
                 if lista_clientes:
                     cliente = lista_clientes[0]
-                    self._stack_telas.screens[4].nome_line.setText(str(cliente[1]))
-                    self._stack_telas.screens[4].cpf_resultado_line.setText(str(cliente[0]))
-                    self._stack_telas.screens[4].endereco_line.setText(str(cliente[2]))
-                    self._stack_telas.screens[4].data_nascimento_line.setText(str(cliente[3]))
-                    self._stack_telas.screens[4].telefone_line.setText(str(cliente[4]))
+                    self._stack_telas.screens[5].nome_line.setText(str(cliente[1]))
+                    self._stack_telas.screens[5].cpf_resultado_line.setText(str(cliente[0]))
+                    self._stack_telas.screens[5].endereco_line.setText(str(cliente[2]))
+                    self._stack_telas.screens[5].data_nascimento_line.setText(str(cliente[3]))
+                    self._stack_telas.screens[5].telefone_line.setText(str(cliente[4]))
                 
 
         if event["codigo"] == 8: # SALVAR
-            cpf =  self._stack_telas.screens[4].cpf_resultado_line.text()
-            nome = self._stack_telas.screens[4].nome_line.text()
-            endereco = self._stack_telas.screens[4].endereco_line.text()
-            data_nascimento = self._stack_telas.screens[4].data_nascimento_line.text()
-            telefone = self._stack_telas.screens[4].telefone_line.text()
+            cpf =  self._stack_telas.screens[5].cpf_resultado_line.text()
+            nome = self._stack_telas.screens[5].nome_line.text()
+            endereco = self._stack_telas.screens[5].endereco_line.text()
+            data_nascimento = self._stack_telas.screens[5].data_nascimento_line.text()
+            telefone = self._stack_telas.screens[5].telefone_line.text()
          
             if(cpf and nome and endereco and data_nascimento and telefone):
                 conexao, cursor = abrir_banco_de_dados()
@@ -44,7 +44,7 @@ class GerenciarClientes(Observer):
             
 
         if event["codigo"] == 9: # EXCLUIR
-            cpf =  self._stack_telas.screens[4].cpf_resultado_line.text()
+            cpf =  self._stack_telas.screens[5].cpf_resultado_line.text()
 
             if(cpf):
                 conexao, cursor = abrir_banco_de_dados()
@@ -53,4 +53,4 @@ class GerenciarClientes(Observer):
 
                 fechar_banco_de_dados(conexao)
 
-                self._stack_telas.screens[4].clear()
+                self._stack_telas.screens[5].clear()

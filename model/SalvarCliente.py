@@ -9,11 +9,11 @@ class SalvarCliente(Observer):
 
     def update(self, event):
         if event["codigo"] == 3:
-            cpf = self._stack_telas.screens[0].cpf_line.text()
-            nome = self._stack_telas.screens[0].nome_line.text()
-            endereco = self._stack_telas.screens[0].endereco_line.text()
-            data_de_nascimento = self._stack_telas.screens[0].data_nascimento_line.text()
-            telefone = self._stack_telas.screens[0].telefone_line.text()
+            cpf = self._stack_telas.screens[1].cpf_line.text()
+            nome = self._stack_telas.screens[1].nome_line.text()
+            endereco = self._stack_telas.screens[1].endereco_line.text()
+            data_de_nascimento = self._stack_telas.screens[1].data_nascimento_line.text()
+            telefone = self._stack_telas.screens[1].telefone_line.text()
 
             conexao, cursor = abrir_banco_de_dados()
 

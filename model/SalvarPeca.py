@@ -9,11 +9,11 @@ class SalvarPeca(Observer):
 
     def update(self, event):
         if event["codigo"] == 1:
-            codigo = self._stack_telas.screens[2].codigo_line.text()
-            nome = self._stack_telas.screens[2].nome_line.text()
-            valor_de_custo = self._stack_telas.screens[2].valor_custo_line.text()
-            valor_de_venda = self._stack_telas.screens[2].valor_venda_line.text()
-            codigo_fornecedor = self._stack_telas.screens[2].codigo_fornecedor_line.text()
+            codigo = self._stack_telas.screens[3].codigo_line.text()
+            nome = self._stack_telas.screens[3].nome_line.text()
+            valor_de_custo = self._stack_telas.screens[3].valor_custo_line.text()
+            valor_de_venda = self._stack_telas.screens[3].valor_venda_line.text()
+            codigo_fornecedor = self._stack_telas.screens[3].codigo_fornecedor_line.text()
 
             conexao, cursor = abrir_banco_de_dados()
 

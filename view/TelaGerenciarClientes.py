@@ -22,58 +22,55 @@ class TelaGerenciarClientes(QWidget):
 
 
     def _settings(self):
-        self.setFixedSize(800, 740)
+        self.setFixedSize(600, 800)
         self.setWindowTitle("Gerenciar clientes")
  
 
     def _create_widgets(self):
-        self.gerenciar_label = label(self, "Gerenciar clientes", 240, 0, 561, 60)
+        self.gerenciar_label = label(self, "Gerenciar clientes", 0, 0, 600, 60)
         self.gerenciar_label.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.gerenciar_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.cpf_line = lineEdit(self, 390, 100, 261, 41)
-        self.cpf_label = label(self, "Cpf do cliente", 240, 80, 561, 20)
+        self.cpf_line = lineEdit(self, 170, 100, 261, 41)
+        self.cpf_label = label(self, "Cpf do cliente", 0, 80, 600, 20)
         self.cpf_label.setAlignment(QtCore.Qt.AlignCenter)
         
-        self.buscar_botao = button(self, "Buscar", 390, 150, 261, 41)
+        self.buscar_botao = button(self, "Buscar", 170, 150, 261, 41)
 
-        self.resultado_label = label(self, "Resultado", 240, 200, 561, 60)
+        self.resultado_label = label(self, "Resultado", 0, 200, 600, 60)
         self.resultado_label.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.resultado_label.setAlignment(QtCore.Qt.AlignCenter)
 
 
-        self.nome_line = lineEdit(self, 390, 300, 261, 41)
-        self.nome_label = label(self, "Nome", 240, 280, 561, 20)
+        self.nome_line = lineEdit(self, 170, 300, 261, 41)
+        self.nome_label = label(self, "Nome", 0, 280, 600, 20)
         self.nome_label.setAlignment(QtCore.Qt.AlignCenter)
         
-        self.cpf_resultado_line = lineEdit(self, 390, 380, 261, 41)
+        self.cpf_resultado_line = lineEdit(self, 170, 380, 261, 41)
         self.cpf_resultado_line.setEnabled(False)
-        self.cpf_resultado_label = label(self, "Cpf", 240, 360, 561, 20)
+        self.cpf_resultado_label = label(self, "Cpf", 0, 360, 600, 20)
         self.cpf_resultado_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.endereco_line = lineEdit(self, 390, 460, 261, 41)
-        self.endereco_label = label(self, "Endereço", 240, 440, 561, 20)
+        self.endereco_line = lineEdit(self, 170, 460, 261, 41)
+        self.endereco_label = label(self, "Endereço", 0, 440, 600, 20)
         self.endereco_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.data_nascimento_line = lineEdit(self, 390, 540, 261, 41)
-        self.data_nascimento_label = label(self, "Data de nascimento", 240, 520, 561, 20)
+        self.data_nascimento_line = lineEdit(self, 170, 540, 261, 41)
+        self.data_nascimento_label = label(self, "Data de nascimento", 0, 520, 600, 20)
         self.data_nascimento_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.telefone_line = lineEdit(self, 390, 620, 261, 41)
-        self.telefone_label = label(self, "Telefone", 240, 600, 561, 20)
+        self.telefone_line = lineEdit(self, 170, 620, 261, 41)
+        self.telefone_label = label(self, "Telefone", 0, 600, 600, 20)
         self.telefone_label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.salvar_botao = button(self, "Salvar", 390, 680, 130, 41)
-        self.excluir_botao = button(self, "Excluir", 521, 680, 130, 41)
+        self.salvar_botao = button(self, "Salvar", 170, 680, 130, 41)
+        self.excluir_botao = button(self, "Excluir", 300, 680, 130, 41)
 
-        self.listView = QListView(self)
-        self.listView.setGeometry(QtCore.QRect(0, 0, 241, 741))
+        self.voltar_botao = button(self, "Voltar", 170, 740, 261, 41)
 
 
     def _set_style(self):
         self.setStyleSheet("background-color: rgb(235, 235, 235);")
-
-        self.listView.setStyleSheet("background-color: rgb(32, 29, 29);")
         
         self.gerenciar_label.setStyleSheet("font: 16pt;")
         self.cpf_label.setStyleSheet("font: 12pt;")
@@ -97,13 +94,15 @@ class TelaGerenciarClientes(QWidget):
 
         style_button(button=self.salvar_botao, cor="azul", tam_fonte="12", border_radius=(5, 0, 5, 0), border_color="(123, 166, 205)")
         style_button(button=self.excluir_botao, cor="vermelho", tam_fonte="12", border_radius=(0, 5, 0, 5), border_color="(205, 123, 123)")
+        style_button(button=self.voltar_botao, cor="cinza", tam_fonte="12", border_radius=(10, 10, 10, 10), rgb_da_letra="(36, 36, 36)")
 
 
     def _setConnects(self):
         self.buscar_botao.clicked.connect(self.botaoBuscar)
         self.salvar_botao.clicked.connect(self.botaoSalvar)
         self.excluir_botao.clicked.connect(self.botaoExcluir)
-        
+        self.voltar_botao.clicked.connect(self.botaoVoltar)
+
 
     def clear(self, *widget_names):
         self.cpf_line.clear()
@@ -126,6 +125,10 @@ class TelaGerenciarClientes(QWidget):
 
     def botaoExcluir(self):
         event = {"codigo": 9, "descricao": "Botão EXCLUIR da tela GERENCIAR CLIENTES"}
+        self.subject.notify(event)
+
+    def botaoVoltar(self):
+        event = {"codigo": 28, "descricao": "Botão VOLTAR da tela CADASTRAR CLIENTES"}
         self.subject.notify(event)
 
 
