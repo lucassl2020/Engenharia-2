@@ -15,7 +15,7 @@ class AbrirTelaListaFornecedores(Observer):
             conexao, cursor = abrir_banco_de_dados()
 
 
-            lista_clientes = apply_sql_command(cursor, "SELECT * FROM Clientes", retorno="fetchall")
+            lista_clientes = apply_sql_command(cursor, "SELECT * FROM Fornecedores", retorno="fetchall")
 
             self._stack_telas.screens[10].tabela.setRowCount(len(lista_clientes)) 
             self._stack_telas.screens[10].tabela.setHorizontalHeaderLabels(["Cnpj", "Nome fantasia", "Razão social", "Telefone", "Endereço", "Inscrição estadual", "Email"])
