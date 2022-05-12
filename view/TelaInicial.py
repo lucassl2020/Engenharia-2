@@ -21,22 +21,22 @@ class TelaInicial(QWidget):
 
 
     def _settings(self):
-        self.setFixedSize(350, 1010)
+        self.setFixedSize(1010, 370)
         self.setWindowTitle("Inicio")
  
 
     def _create_widgets(self):
         self.cadastrar_peca = button(self, "Cadastrar peça", 20, 30, 310, 50)
-        self.cadastrar_cliente = button(self, "Cadastrar cliente", 20, 120, 310, 50)
-        self.cadastrar_fornecedor = button(self, "Cadastrar fornecedor", 20, 210, 310, 50)
-        self.lista_pecas = button(self, "Lista de peças", 20, 300, 310, 50)
-        self.lista_clientes = button(self, "Lista de clientes", 20, 390, 310, 50)
-        self.lista_fornecedores = button(self, "Lista de fornecedores", 20, 480, 310, 50)
-        self.lista_vendas = button(self, "Lista de vendas", 20, 570, 310, 50)
-        self.gerenciar_pecas = button(self, "Gerenciar peças", 20, 660, 310, 50)
-        self.gerenciar_clientes = button(self, "Gerenciar clientes", 20, 750, 310, 50)
-        self.gerenciar_fornecedores = button(self, "Gerenciar fornecedores", 20, 840, 310, 50)
-        self.realizar_vendas = button(self, "Realizar venda", 20, 930, 310, 50)
+        self.cadastrar_cliente = button(self, "Cadastrar cliente", 350, 30, 310, 50)
+        self.cadastrar_fornecedor = button(self, "Cadastrar fornecedor", 680, 30, 310, 50)
+        self.lista_pecas = button(self, "Lista de peças", 20, 120, 310, 50)
+        self.lista_clientes = button(self, "Lista de clientes", 350, 120, 310, 50)
+        self.lista_fornecedores = button(self, "Lista de fornecedores", 680, 120, 310, 50)
+        self.lista_vendas = button(self, "Lista de vendas", 20, 210, 310, 50)
+        self.gerenciar_pecas = button(self, "Gerenciar peças", 350, 210, 310, 50)
+        self.gerenciar_clientes = button(self, "Gerenciar clientes", 680, 210, 310, 50)
+        self.gerenciar_fornecedores = button(self, "Gerenciar fornecedores", 20, 300, 310, 50)
+        self.realizar_vendas = button(self, "Realizar venda", 350, 300, 310, 50)
         
 
     def _set_style(self):
